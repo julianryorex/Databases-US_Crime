@@ -15,22 +15,24 @@ I want to encourage you to choose projects or data that are meaningful to you.
   - Exception: Group of four is allowed iff one student is not a CS major
 
 ### Data Sources
-
-You may choose your own data sources. A significantly large dataset is required. 
-Exceptions to this rule are made by permission for real-world problems you may wish to solve. 
-When searching for data sources, consider how much work is needed to format and pre-process the data. 
-Remember that the goal of this project is a relational database, therefore your should select your data appropriately. 
+You may choose your own data sources. A significantly large dataset is required. Exceptions to this rule are made by permission for real-world problems you may wish to solve. When searching for data sources, consider how much work is needed to format and pre-process the data. Remember that the goal of this project is a relational database, therefore your should select your data appropriately. 
 When considering a dataset, ask what types of queries the users of your system might be able make.
 
 ## Assignment
-
 The goal of this assignment is to allow you to make progress on your class project in a series of stages. Please submit the different stages of the proposal into the appropriate D2L dropbox folder by 11:59 PM on the due date listed below:
+
 • Project proposal due 9/28/19
+
 • Project report 1 due 10/12/19
+
 • Project report 2 due 10/26/19
+
 • Project report 3 due 11/09/19
+
 • Project report 4 due 11/25/19
+
 • Project presentations on 11/25/19, 12/2/19 and 12/4/19
+
 Although the stages of the project are due about two weeks apart, the amount of work required in later stages increases – please plan your time accordingly.
 Your submissions should include the names of all teammates. Each team member will submit the same work. Each team member will also submit a text file with the relative contribution percentage to a given assignment made by all team members. This last requirement is to ensure that all the members of their team contribute to the project. Consistently low contribution will result in lower grade for the lagging team member.
 
@@ -40,28 +42,39 @@ Your proposal will consist of 1 – 2 pages describing your project. Use Chapter
 
 #### Guidelines
 1. You should specify:
+
   • The problem you plan to solve
+  
   • Outline your approach to solving it
-  • Explain your plan to acquire and pre-process (scrub) your data • Discuss the types of queries users could make to your system
+  
+  • Explain your plan to acquire and pre-process (scrub) your data
+  
+  • Discuss the types of queries users could make to your system
+  
   • Describe the implementation of your database and your interface
+  
 2. Although I want to give you a free hand in the problem and application you will choose, please be cognizant that data can be sensitive. Projects that propose or enable unethical use of data will not be allowed.
 
 ### Project Report 1
-
-
 Draw an ER, or EER, diagram for your database design. You may use any software tool of your choice, but handwritten ER diagrams will not be accepted. Use Chapters 3 and 4 as your guide.
 
 #### Guidelines
-
-1. Make sure to indicate: - keys,
+1. Make sure to indicate: 
+  - keys,
+  
   - all attributes,
+  
   - composite attributes (if any),
+  
   - meaningful derived attributes (if any), - relationship attributes (if any),
+  
   - weak entities (if any),
+  
   - cardinality constraints, and
+  
   - participation constraints.
-Hint: Consider twelve common ER diagram mistakes from http://ceur-ws.org/Vol-848/ICTERI-
-2012-CEUR-WS-paper-15-p-222-227.pdf.
+  
+Hint: Consider twelve common ER diagram mistakes from http://ceur-ws.org/Vol-848/ICTERI-2012-CEUR-WS-paper-15-p-222-227.pdf.
 2. If there are extra constraints that cannot be captured by the ER diagram, make sure you list them in
 supplementary text.
 3. List any assumptions you make in the process. Your ER diagram should contain at least 6 (or more)
@@ -78,24 +91,35 @@ Convert your ER (or EER) diagram into a relational database schema diagram. Use 
 #### Guidelines
 
 1. Transform the conceptual data into normalized relations: 
+
   • Represent entities
+  
   • Map multivalued attributes • Map weak entity types
+  
   • Map all relationship types
+  
    – binary 1:1,
    – binary 1:N, and
    – binary M:N
    – n-ary relationships
-Normalize the relations to 3NF (see Chapter 14)
+   
+  • Normalize the relations to 3NF (see Chapter 14)
+  
   • Merge the relations
+  
 2. Ensure well-formed relations
+
   • minimum amount of redundancy
+  
   • permits users to insert, modify and delete the rows without errors or inconsistencies 3. Identify all primary keys:
+  
   • value of the key must uniquely identify every row in the relation
+  
   • key should be nonredundant
+  
 4. Ensure referential integrity is achieved (i.e., no dangling references)
 
 ### Project Report 3 - SQL and sample data
-
 For this document, you will submit your data definition commands and examples of data in from your database. Use Chapters 6 and 7 as your guides.
 
 #### Guidelines
