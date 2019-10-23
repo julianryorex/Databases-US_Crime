@@ -75,12 +75,16 @@ Draw an ER, or EER, diagram for your database design. You may use any software t
   - participation constraints.
   
 Hint: Consider twelve common ER diagram mistakes from http://ceur-ws.org/Vol-848/ICTERI-2012-CEUR-WS-paper-15-p-222-227.pdf.
+
 2. If there are extra constraints that cannot be captured by the ER diagram, make sure you list them in
 supplementary text.
+
 3. List any assumptions you make in the process. Your ER diagram should contain at least 6 (or more)
 entities; otherwise it is likely not of sufficient complexity for a CSCI 440 project.
+
 4. Make sure your diagram captures a significant number of relationships, and all those required to
 accomplish your project goals.
+
 5. For each entity set and relationship, write a short description in plain English of what it represents
 or models. One or two sentences per entity set and relationship is enough. These descriptions are primarily to help me understand what you are modeling and ensure that you are modeling it correctly.
 
@@ -99,8 +103,11 @@ Convert your ER (or EER) diagram into a relational database schema diagram. Use 
   • Map all relationship types
   
    – binary 1:1,
-   – binary 1:N, and
+   
+   – binary 1:N
+   
    – binary M:N
+   
    – n-ary relationships
    
   • Normalize the relations to 3NF (see Chapter 14)
@@ -126,30 +133,45 @@ For this document, you will submit your data definition commands and examples of
 
 1. Format data definition as SQL commands stored in a text document. Include a CREATE SCHEMA command and a CREATE TABLE command for each relation. If you use a framework to assist the interaction with SQL, do not submit any non-SQL code. You must generate (either programmatically or by hand) the underlying SQL schema commands and submit only those.
 2. For each table created, you should include:
+
   • name (be descriptive) of each attribute
+  
   • type of each attribute (consider the storage space implications of each choice)
+  
   • attribute constraints (e.g., NOT NULL, uniqueness, default value)
+  
   • primary key
+  
   • foreign keys (all of them)
+  
   • referential integrity constraints
+  
   • CHECK clauses (if needed)
+  
   • short comment linking the table creation command to the entity name of your ER diagram (use # character to comment)
-3. Submit sample data for each and every one of your tables. For each table, write a query that returns
-any 5 records. Use the command LIMIT 5 to control the result count. You should return all attributes and the default attribute names using SELECT * syntax. You may merely choose to return the first five records, or you use the WHERE clause to specify a more specific and interesting query. If accessing your database from the terminal, you should copy and paste the result of each query into a plain text file. If you are using PhpMyAdmin, you should export the results of your query into a text file (it is one of the options). For both approaches, you should collect the result for each query (one per table) into a single text file for submission.
+  
+3. Submit sample data for each and every one of your tables. For each table, write a query that returns any 5 records. Use the command LIMIT 5 to control the result count. You should return all attributes and the default attribute names using SELECT * syntax. You may merely choose to return the first five records, or you use the WHERE clause to specify a more specific and interesting query. If accessing your database from the terminal, you should copy and paste the result of each query into a plain text file. If you are using PhpMyAdmin, you should export the results of your query into a text file (it is one of the options). For both approaches, you should collect the result for each query (one per table) into a single text file for submission.
 
 
 ### Project report 4 – Transactions
-
 For this document, you will submit five example transactions (use cases). These transactions should demon- strate interaction with your database as used in your project.
 
 #### Guidelines
 
-1. For each transaction, you should provide: • English language query
+1. For each transaction, you should provide: 
+  
+  • English language query
+  
   • SQL query
+  
   • result set (LIMIT 5), including table headers
+  
 In other words, provide five example queries (both in English and SQL) and the result set limited to five rows.
+
 2. These transactions should be representative of how your client might use your project. You should provide a diverse set of queries that highlights five different use case scenarios. If your queries are deemed too similar to each other, you may not receive full credit for this technical document.
+
 3. Along with each transaction include a brief description of its purpose within the overall functionality of your project.
+
 4. You do not need to give the high-level code (e.g., PHP, Python) used to assemble your SQL statements. If using prepared statements, please submit the only resulting SQL statement after your variables have been assigned. 
 
 ### Project Presentation
