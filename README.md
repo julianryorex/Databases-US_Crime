@@ -97,9 +97,8 @@ Convert your ER (or EER) diagram into a relational database schema diagram. Use 
 1. Transform the conceptual data into normalized relations: 
 
   • Represent entities
-  
-  • Map multivalued attributes • Map weak entity types
-  
+  • Map multivalued attributes 
+  • Map weak entity types
   • Map all relationship types
   
    – binary 1:1,
