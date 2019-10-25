@@ -124,9 +124,9 @@ Convert your ER (or EER) diagram into a relational database schema diagram. Use 
   
   3. Identify all primary keys:
   
-    • value of the key must uniquely identify every row in the relation
+    * value of the key must uniquely identify every row in the relation
   
-    • key should be nonredundant
+    * key should be nonredundant
   
 4. Ensure referential integrity is achieved (i.e., no dangling references)
 
@@ -138,21 +138,21 @@ For this document, you will submit your data definition commands and examples of
 1. Format data definition as SQL commands stored in a text document. Include a CREATE SCHEMA command and a CREATE TABLE command for each relation. If you use a framework to assist the interaction with SQL, do not submit any non-SQL code. You must generate (either programmatically or by hand) the underlying SQL schema commands and submit only those.
 2. For each table created, you should include:
 
-  • name (be descriptive) of each attribute
+  * name (be descriptive) of each attribute
   
-  • type of each attribute (consider the storage space implications of each choice)
+  * type of each attribute (consider the storage space implications of each choice)
   
-  • attribute constraints (e.g., NOT NULL, uniqueness, default value)
+  * attribute constraints (e.g., NOT NULL, uniqueness, default value)
   
-  • primary key
+  * primary key
   
-  • foreign keys (all of them)
+  * foreign keys (all of them)
   
-  • referential integrity constraints
+  * referential integrity constraints
   
-  • CHECK clauses (if needed)
+  * CHECK clauses (if needed)
   
-  • short comment linking the table creation command to the entity name of your ER diagram (use # character to comment)
+  * short comment linking the table creation command to the entity name of your ER diagram (use # character to comment)
   
 3. Submit sample data for each and every one of your tables. For each table, write a query that returns any 5 records. Use the command LIMIT 5 to control the result count. You should return all attributes and the default attribute names using SELECT * syntax. You may merely choose to return the first five records, or you use the WHERE clause to specify a more specific and interesting query. If accessing your database from the terminal, you should copy and paste the result of each query into a plain text file. If you are using PhpMyAdmin, you should export the results of your query into a text file (it is one of the options). For both approaches, you should collect the result for each query (one per table) into a single text file for submission.
 
