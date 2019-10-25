@@ -96,35 +96,37 @@ Convert your ER (or EER) diagram into a relational database schema diagram. Use 
 
 1. Transform the conceptual data into normalized relations: 
 
-  • Represent entities
+    • Represent entities
   
-  • Map multivalued attributes 
+    • Map multivalued attributes 
   
-  • Map weak entity types
+    • Map weak entity types
   
-  • Map all relationship types
+    • Map all relationship types
   
-   – binary 1:1,
+      – binary 1:1,
    
-   – binary 1:N
+      – binary 1:N
    
-   – binary M:N
+      – binary M:N
    
-   – n-ary relationships
+      – n-ary relationships
    
-  • Normalize the relations to 3NF (see Chapter 14)
+    • Normalize the relations to 3NF (see Chapter 14)
   
-  • Merge the relations
+    • Merge the relations
   
 2. Ensure well-formed relations
 
-  • minimum amount of redundancy
+    • minimum amount of redundancy
   
-  • permits users to insert, modify and delete the rows without errors or inconsistencies 3. Identify all primary keys:
+    • permits users to insert, modify and delete the rows without errors or inconsistencies 
   
-  • value of the key must uniquely identify every row in the relation
+  3. Identify all primary keys:
   
-  • key should be nonredundant
+    • value of the key must uniquely identify every row in the relation
+  
+    • key should be nonredundant
   
 4. Ensure referential integrity is achieved (i.e., no dangling references)
 
