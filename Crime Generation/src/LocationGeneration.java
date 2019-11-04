@@ -4,7 +4,8 @@ import java.io.IOException;
 
 public class LocationGeneration {
 
-    private String location[][] = new String[130][2]; // state, then city in that state
+    // size of the array is fixed for now (assuming we only use crimes from Montana)
+    private String[][] location = new String[130][2]; // state, then city in that state
     String row;
     String state;
 
@@ -14,7 +15,7 @@ public class LocationGeneration {
     }
 
     public String[][] generateLocation() throws IOException {
-        BufferedReader csvReader = new BufferedReader(new FileReader("/Users/myfatduck/Desktop/Databases/Crime Generation/MT-Towns.csv"));
+        BufferedReader csvReader = new BufferedReader(new FileReader("/Users/myfatduck/OneDrive/School/University/Year 4/CSCI 440/Project/Databases-US_Crime/Crime Generation/MT-Towns.csv"));
 
         state = "Montana";
         int i = 0;
