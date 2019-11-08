@@ -1,6 +1,18 @@
 import java.io.IOException;
 
 public class CrimeGeneration {
+    /*
+    this class calls all of its other aggregated classes to extract data either based on csv files or
+    computer generated data. It shall hold all of the arrays / linked lists that carry the data. Each data
+    structure must carry at least one attribute.
+    - CrimeArray is the array that carries all of the attributes of the crime entity as a tuple.
+    - Location is a 2D array that carries city and state
+    - year is an array that carries all the relevant years for out DB. (for now has size 2)
+    - weaponID is an array that carries all of the weapon IDs. (computer generated)
+    -
+
+
+     */
 
     // constants for looping correctly
     public final int maxCrimeID = 5; // number of crimes in database (5 for now)
@@ -10,11 +22,12 @@ public class CrimeGeneration {
 
 
 
-    public String crimeArray[][] = new String[maxCrimeID][attributeNumberCrime];
-    public int[] crimeID = new int[maxCrimeID]; // array of crime
+    public String crimeArray[][] = new String[maxCrimeID][attributeNumberCrime]; // array of crime
+    public int[] crimeID = new int[maxCrimeID]; // array of crimeIDs
     public String[][] location; // location array (city and state)
     public int[] year = new int[2]; // year array
     public int[] weaponID = new int[numberWeaponID];
+    public String[] weaponType;
 
 
     public CrimeGeneration() throws IOException {
@@ -22,12 +35,7 @@ public class CrimeGeneration {
         location = lg.generateLocation();
         generateID();
         WeaponGeneration wg = new WeaponGeneration(numberWeaponID);
-        weaponID = wg.getWeaponID();
-
-
-
-
-
+        weaponType = wg.getWeaponType();
         reassemble();
         printCrimeArray();
 
