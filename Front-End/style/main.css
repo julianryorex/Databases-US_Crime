@@ -1,0 +1,86 @@
+html, body {
+    color: black;
+    margin: 0px;
+    font-size: 1em;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: black;
+}
+
+#navig {
+    position: -webkit-sticky;
+    position: sticky;
+    display: inline-flex;
+    background: yellow;
+    width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0px;
+    position: sticky;
+    background: yellow;
+}
+
+.header {
+    display: flex;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#contact {
+    text-align: right;
+    width: 100%;
+    margin-right: 20px;
+}
+
+li {
+    list-style: none;
+    padding: 20px;
+}
+
+.col {
+    display: inline-flex;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+#main-page {
+    margin-top: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-family: 'Solway', serif;
+    font-size: 3em;
+    width: 100vw;
+    height: 92vh;
+    align-items: center;
+}
+
+#headline {
+    text-decoration-color: black;
+}
+
+#rnavbar {
+    background: red;
+    width: 74.5%;
+    color: black;
+    height: 86.5vh;
+}
+
+#lnavbar {
+    background: blue;
+    width: 25%;
+    height: 86.5vh;
+}
+
+#database-page {}
