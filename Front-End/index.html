@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style/main.css">
     <link href="https://fonts.googleapis.com/css?family=Solway&display=swap" rel="stylesheet">
     <script type="text/javascript" src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="utf-8">
     <title>Violent Crime in the US.</title>
 </head>
@@ -21,12 +22,24 @@
     <div class="container">
         <div id="main-page"><a id="headline" href="#database-page">Want to know more about US Crime? Click here!</a></div>
     </div>
-    <!-- Left side: attribute column -->
+
     <div class="container" id="database-page">
+        <!-- Left side: attribute column -->
         <div class="col" id="lnavbar">
-            <div class="attributes">
-                <div class="dropdown">dropdown</div>
+            <div class="attributes-search">
+                <div class="search-title">Search by Name:</div>
                 <input class="searchbar" type="text" placeholder="Search">
+                <button type="button" name="search-btn" class="searchbtn"><i class="material-icons" style="font-size:15px">chevron_right</i></button>
+            </div>
+            <div class=" attributes-dropdown">
+                <button class="dropbtn">Location</button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <!-- want drop downs here -->
+
             </div>
         </div>
 
