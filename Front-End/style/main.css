@@ -84,3 +84,7 @@ li {
 }
 
 #database-page {}
+
+.attributes {
+    display: inline-block;
+}
