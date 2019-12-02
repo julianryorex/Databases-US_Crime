@@ -1,8 +1,7 @@
 <html>
 <body>
-
+Hello and welcome to our database with information about crime! Select the categories you would like to learn more about!<br/>
 <?php
-echo "Hello, " . $_GET["name"] . "!<br/>";
 
 // Connecting to mySQL server
 $connection = new mysqli("localhost", "csci440", "csci440", "database_project");
