@@ -2,6 +2,8 @@
 <body>
 
 <?php
+echo "Hello, " . $_GET["name"] . "!<br/>";
+
 // Connecting to mySQL server
 $connection = new mysqli("localhost", "csci440", "csci440", "database_project");
 
@@ -10,7 +12,25 @@ if ($connection->connect_error) {
     die("Failed to connect to mySQL server: " . $connection->connect_error);
 }
 
-// query all weapons
+// query all weapons and make drop down
+$connection_result = $connection->query("SELECT * FROM WEAPON ORDER BY Type;");
+
+if ($connection_result->num_rows > 0){
+    echo "<form>\n";
+    echo "<select name=weapon_type>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        echo "<option value=\"" . $row["Id"] . "\">" . $row["Type"] . "</option>\n";
+    }  
+    echo "</select>\n";
+  echo '<input type="submit" value="Go!">';
+
+    echo "</form>\n";
+}
+else{
+    echo "No results";
+}
+
+// query all weapons and print table
 $connection_result = $connection->query("SELECT * FROM WEAPON;");
 
 if ($connection_result->num_rows > 0){
