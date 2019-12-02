@@ -11,27 +11,25 @@ a {
     color: black;
 }
 
+.white {
+    color: #F5F5F5;
+}
+
 #navig {
     position: -webkit-sticky;
     position: sticky;
     display: inline-flex;
-    background: yellow;
     width: 100%;
 }
 
 .sticky {
+    display: flex;
     position: fixed;
     top: 0;
     width: 100%;
     margin: 0px;
     position: sticky;
-    background: yellow;
-}
-
-.header {
-    display: flex;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
+    background: rgb(56, 56, 56);
 }
 
 #contact {
@@ -62,6 +60,10 @@ li {
     align-items: center;
 }
 
+#headline:hover {
+    color: #B00000;
+}
+
 #rnavbar {
     background: red;
     width: 74.5%;
@@ -73,6 +75,7 @@ li {
     background: cyan;
     width: 25%;
     height: 86.5vh;
+    font-size: 0.8em;
 }
 
 .searchbtn {
@@ -82,14 +85,20 @@ li {
 .attributes-search {
     display: inline-flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     align-items: center;
 }
 
-.search-title {
-    font-size: 0.8em;
+.title {
     padding: 13px;
+}
+
+.checkboxes {
+    display: inline-block;
+    flex-direction: column;
+    font-size: 0.7em;
+    margin-bottom: 20px;
 }
 
 .dropbtn {

@@ -12,10 +12,10 @@
 
 <body>
     <nav id="navig" class="sticky">
-        <ul class="header sticky">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li id="contact"><a href="#contact">CONTACT</a></li>
+        <ul class="sticky">
+            <li><a class="white" href="#home">HOME</a></li>
+            <li><a class="white" href="#about">ABOUT</a></li>
+            <li id="contact"><a class="white" href="#contact">CONTACT</a></li>
         </ul>
     </nav>
     <!-- Introductory page -->
@@ -27,24 +27,42 @@
         <!-- Left side: attribute column -->
         <div class="col" id="lnavbar">
             <div class="attributes-search">
-                <div class="search-title">Search by Name:</div>
+                <div class="title">Search by Name:</div>
                 <input class="searchbar" type="text" placeholder="Search">
-                <button type="button" name="search-btn" class="searchbtn"><i class="material-icons" style="font-size:15px">chevron_right</i></button>
+                <button type="submit" name="search-btn" class="searchbtn"><i class="material-icons" style="font-size:15px">chevron_right</i></button>
             </div>
-            <div class=" attributes-dropdown">
-                <button class="dropbtn">Location</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <!-- want drop downs here -->
 
+            <div class="attributes-search">
+                <div class="title">Location:</div>
+                <select>
+                    <option value="any">Any</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Washington">Washington</option>
+                    <option value="California">California</option>
+                    <option value="Wyoming">Wyoming</option>
+                    <option value="North Dakota">North Dakota</option>
+                </select>
             </div>
+
+            <div class="attributes-search">
+                <div class="title">Year:</div>
+                <select>
+                    <option value="any">Any</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                </select>
+            </div>
+
+
         </div>
 
         <!-- right side column -->
-        <div class="col" id="rnavbar">this should be the bigger bar</div>
+        <div class="col" id="rnavbar">this is where the queries should be displayed</div>
 
     </div>
     <div class="footer">
