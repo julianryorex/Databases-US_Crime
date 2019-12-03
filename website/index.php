@@ -1,6 +1,10 @@
 <html>
 <body>
-Hello and welcome to our database with information about crime! Select the categories you would like to learn more about!<br/><br/><br/><br/>
+<br/>
+Welcome to our database with information about crime committed in the state of Montana!
+<br/>
+<br/>
+Select the categories you would like to learn more about in the fields below and click Go!<br/><br/><br/><br/>
 <?php
 
 // Connecting to mySQL server
