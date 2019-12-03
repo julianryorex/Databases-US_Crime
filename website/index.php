@@ -11,6 +11,97 @@ if ($connection->connect_error) {
     die("Failed to connect to mySQL server: " . $connection->connect_error);
 }
 
+
+echo "<form>\n";
+
+// query all years and make drop down
+$connection_result = $connection->query("SELECT DISTINCT Year FROM CRIME ORDER BY Year;");
+
+if ($connection_result->num_rows > 0){
+    echo "<select name=Year>\n";
+    echo "<option value=\"*\">All Years</option>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        $selected = "";
+        if($_GET["Year"] == $row["Year"]){
+            $selected = "selected";
+        }
+        echo "<option " . $selected . " value=\"" . $row["Year"] . "\">" . $row["Year"] . "</option>\n";
+    }  
+    echo "</select>\n";
+
+}
+
+// query all cities and make drop down
+$connection_result = $connection->query("SELECT DISTINCT City FROM CRIME ORDER BY City;");
+
+if ($connection_result->num_rows > 0){
+    echo "<select name=City>\n";
+    echo "<option value=\"*\">All Cities</option>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        $selected = "";
+        if($_GET["City"] == $row["City"]){
+            $selected = "selected";
+        }
+        echo "<option " . $selected . " value=\"" . $row["City"] . "\">" . $row["City"] . "</option>\n";
+    }  
+    echo "</select>\n";
+
+}
+
+// query all weapons and make drop down
+$connection_result = $connection->query("SELECT * FROM WEAPON ORDER BY Type;");
+
+if ($connection_result->num_rows > 0){
+    echo "<select name=weapon_id>\n";
+    echo "<option value=\"*\">All Weapon types</option>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        $selected = "";
+        if($_GET["weapon_id"] == $row["Id"]){
+            $selected = "selected";
+        }
+        echo "<option " . $selected . " value=\"" . $row["Id"] . "\">" . $row["Type"] . "</option>\n";
+    }  
+    echo "</select>\n";
+
+}
+// query all jail sentences and make drop down
+$connection_result = $connection->query("SELECT DISTINCT Jail_sentence FROM INCARCERATION ORDER BY Jail_sentence;");
+
+if ($connection_result->num_rows > 0){
+    echo "<select name=Jail_sentence>\n";
+    echo "<option value=\"*\">All Jail sentences</option>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        $selected = "";
+        if($_GET["Jail_sentence"] == $row["Jail_sentence"]){
+            $selected = "selected";
+        }
+        echo "<option " . $selected . " value=\"" . $row["Jail_sentence"] . "\">" . $row["Jail_sentence"] . "</option>\n";
+    }  
+    echo "</select>\n";
+
+}
+// query all jail names and make drop down
+$connection_result = $connection->query("SELECT DISTINCT Jail_name FROM INCARCERATION ORDER BY Jail_name;");
+
+if ($connection_result->num_rows > 0){
+    echo "<select name=Jail_name>\n";
+    echo "<option value=\"*\">All Jail locations</option>\n";
+    while($row = $connection_result->fetch_assoc()) {
+        $selected = "";
+        if($_GET["Jail_name"] == $row["Jail_name"]){
+            $selected = "selected";
+        }
+        echo "<option " . $selected . " value=\"" . $row["Jail_name"] . "\">" . $row["Jail_name"] . "</option>\n";
+    }  
+    echo "</select>\n";
+
+}
+
+echo '<input type="submit" value="Go!">';
+echo "</form>\n";
+
+// main table
+
 $startQuery = "SELECT 
     Year, 
     State, 
