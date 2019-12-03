@@ -4,7 +4,9 @@
 Welcome to our statistics page on crimes in the state of Montana!
 <br/>
 <br/>
-Select the categories you would like to learn more about in the field below and click Go!<br/><br/><br/><br/>
+Want to go back? Click <a href="index.php">here</a>
+<br/>
+<br/>
 <?php
 
 function printQueryResults($connection, $query){
@@ -48,12 +50,59 @@ $connection = new mysqli("localhost", "csci440", "csci440", "database_project");
 if ($connection->connect_error) {
     die("Failed to connect to mySQL server: " . $connection->connect_error);
 }
-
-printQueryResults($connection, "SELECT * FROM WEAPON;");
 ?>
-
-vanlig html :)
-
-<?php printQueryResults($connection, "SELECT * FROM CRIME WHERE weapon_id > 3;"); ?>
+Statistics on crime committed in Montana by weapon type:
+<br/>
+<br/>
+<?php
+printQueryResults($connection, "SELECT Type AS 'Weapon type', COUNT(*) AS 'Number of crimes'  FROM CRIME JOIN WEAPON ON weapon_id = WEAPON.Id GROUP BY Type ;");
+?>
+<br/>
+Statistics on crime committed in Montana by Year:
+<br/>
+<br/>
+<?php
+printQueryResults($connection, "SELECT Year, COUNT(*) AS 'Number of crimes' FROM CRIME GROUP BY Year ;");
+?>
+<br/>
+Order of most violent cities in Montana:
+<br/>
+<br/>
+<?php printQueryResults($connection, "SELECT  MAX(City) AS 'Most violent cities in Montana'  FROM CRIME GROUP BY City; ;"); ?>
+<br/>
+Statistics on crime committed in Montana by city:
+<br/>
+<br/>
+<?php printQueryResults($connection, "SELECT City, COUNT(*) AS 'Number of crimes'  FROM CRIME GROUP BY City ;"); ?>
+<br/>
+Statistics on crime committed in Montana by victim race:
+<br/>
+<br/>
+<?php printQueryResults($connection, " SELECT Race AS 'Victim race', COUNT(*) AS 'Number of crimes' FROM CRIME JOIN PERSON ON committed_on = PERSON.Ssn GROUP BY Race ;"); ?>
+<br/>
+Statistics on crime committed in Montana by offender race:
+<br/>
+<br/>
+<?php printQueryResults($connection, " SELECT Race AS 'Offender race, COUNT(*) AS 'Number of crimes' FROM CRIME JOIN PERSON ON committed_by = PERSON.Ssn GROUP BY Race ;
+"); ?>
+<br/>
+Statistics on crime committed in Montana by victim gender:
+<br/>
+<br/>
+<?php printQueryResults($connection, " SELECT Sex AS 'Victim gender', COUNT(*) AS 'Number of crimes' FROM CRIME JOIN PERSON ON committed_on = PERSON.Ssn GROUP BY Sex ;
+"); ?>
+<br/>
+Statistics on crime committed in Montana by offender gender:
+<br/>
+<br/>
+<?php printQueryResults($connection, " SELECT Sex AS 'Offender gender', COUNT(*) AS 'Number of crimes' FROM CRIME JOIN PERSON ON committed_by = PERSON.Ssn GROUP BY Sex ;
+"); ?>
+<br/>
+Statistics on number of crimes per offender:
+<br/>
+<br/>
+<?php printQueryResults($connection, " SELECT Firstname AS 'Offender name', COUNT(*) AS 'Number of crimes' FROM CRIME JOIN PERSON ON committed_by = PERSON.Ssn GROUP BY Firstname;
+"); ?>
+</body>
 </body>
 </html>
