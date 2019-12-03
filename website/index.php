@@ -18,7 +18,7 @@ if ($connection->connect_error) {
 
 echo "<form>\n";
 
-// query all years and make drop down
+// query dataase and make drop down for years
 $connection_result = $connection->query("SELECT DISTINCT Year FROM CRIME ORDER BY Year;");
 
 if ($connection_result->num_rows > 0){
@@ -35,7 +35,7 @@ if ($connection_result->num_rows > 0){
 
 }
 
-// query all cities and make drop down
+// query databases and make drop down for cities
 $connection_result = $connection->query("SELECT DISTINCT City FROM CRIME ORDER BY City;");
 
 if ($connection_result->num_rows > 0){
@@ -52,7 +52,7 @@ if ($connection_result->num_rows > 0){
 
 }
 
-// query all weapons and make drop down
+// query database and make drop down for weapons
 $connection_result = $connection->query("SELECT * FROM WEAPON ORDER BY Type;");
 
 if ($connection_result->num_rows > 0){
@@ -68,7 +68,7 @@ if ($connection_result->num_rows > 0){
     echo "</select>\n";
 
 }
-// query all jail sentences and make drop down
+// query database and make drop down for jail sentences
 $connection_result = $connection->query("SELECT DISTINCT Jail_sentence FROM INCARCERATION ORDER BY Jail_sentence;");
 
 if ($connection_result->num_rows > 0){
@@ -84,7 +84,7 @@ if ($connection_result->num_rows > 0){
     echo "</select>\n";
 
 }
-// query all jail names and make drop down
+// query database and make drop down for jail locations
 $connection_result = $connection->query("SELECT DISTINCT Jail_name FROM INCARCERATION ORDER BY Jail_name;");
 
 if ($connection_result->num_rows > 0){
