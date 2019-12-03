@@ -4,7 +4,11 @@
 Welcome to our database with information about crime committed in the state of Montana!
 <br/>
 <br/>
-Select the categories you would like to learn more about in the fields below and click Go!<br/><br/><br/><br/>
+Select the categories you would like to learn more about in the fields below and click Go!<br/><br/>
+
+Want to see statistics? See our <a href="statistics.php">statistics page</a>
+
+<br/><br/>
 <?php
 
 // Connecting to mySQL server
@@ -103,6 +107,7 @@ if ($connection_result->num_rows > 0){
 
 echo '<input type="submit" value="Go!">';
 echo "</form>\n";
+
 
 // main table
 
