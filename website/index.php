@@ -122,28 +122,18 @@ FROM CRIME
 
 WHERE ";
 
+foreach($_GET as $key => $value){
+    if ($value != "*"){
+        $conditions .= $key . " = '" . $value . "' AND \n";
+    }
+}
+
 $endQuery = " TRUE;";
 
-// query all weapons and make drop down
-$connection_result = $connection->query("SELECT * FROM WEAPON ORDER BY Type;");
+$completeQuery = $startQuery . $conditions . $endQuery;
+//echo $completeQuery;
 
-if ($connection_result->num_rows > 0){
-    echo "<form>\n";
-    echo "<select name=weapon_type>\n";
-    while($row = $connection_result->fetch_assoc()) {
-        echo "<option value=\"" . $row["Id"] . "\">" . $row["Type"] . "</option>\n";
-    }  
-    echo "</select>\n";
-  echo '<input type="submit" value="Go!">';
-
-    echo "</form>\n";
-}
-else{
-    echo "No results";
-}
-
-// query all weapons and print table
-$connection_result = $connection->query($startQuery . $endQuery);
+$connection_result = $connection->query($completeQuery);
 
 if ($connection_result->num_rows > 0){
     echo "<table border=\"1\" cellpadding=\"3\">";
