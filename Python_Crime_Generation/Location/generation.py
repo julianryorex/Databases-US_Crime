@@ -9,7 +9,6 @@ def import_path():
     with open("pass.json") as json_file:
         path = json.load(json_file)
         path = path['path']
-        print(type(path))
         return path
 
 
