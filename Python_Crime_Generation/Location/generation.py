@@ -2,7 +2,6 @@ import csv
 import os
 import json
 
-
 '''
 Gets absolute path from json file
 '''
@@ -33,7 +32,6 @@ def extract_locations(year, abs_path):
         city_stats_array = []
 
         for row in csv_reader:
-
             # skip header lines
             if(line_count < 4):
                 line_count += 1
@@ -64,16 +62,6 @@ def extract_locations(year, abs_path):
                 state = current_state
 
             city_stats_array.append(city_stats)
-
-            # print(f"Loop {line_count-4}")
-            # print(f"Current state: {current_state}")
-            # print(f"Previous state: {prev_state}")
-            # print(f"State: {state}")
-            # print(f"City: {city}\n")
-
-            # limit
-            # if(line_count > 400):
-            #     break
             line_count += 1
 
         print(f"Processed {line_count} lines.")
@@ -97,12 +85,23 @@ def print_all(list):
         print_dict(item)
 
 
+def output_SQL(dict, table_name):
+    for state, states in dict.items():
+        for city in states:
+            for key in city:
+                file_path = os.path.join('/Users/myfatduck/OneDrive/Programs/Databases/Databases-US_Crime/mysql', 'insertLocation.sql')
+                with open(file_path, "a") as output_file:
+                    line = f'INSERT INTO {table_name} VALUES("{state}", "{key}");\n'
+                    output_file.write(line)
+
+
 def main():
     abs_path = import_path()
     data = []
     year2016 = extract_locations(2016, abs_path)
     #year2017 = extract_locations(2017, abs_path)
     print_dict(year2016)
+    output_SQL(year2016, "LOCATION")
 
 
 main()
