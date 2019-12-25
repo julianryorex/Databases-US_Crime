@@ -31,9 +31,9 @@ def extract_locations(year):
             city = row[1]
 
             crime_header = ("Population", "Violent", "Murder", "Rape", "Robbery", "Aggravated", "Property", "Burglary", "Larceny", "Motor")
-            rape = row[6] if row[5] == "" else row[5]
+            rape = row[5] if row[4] == "" else row[4]
             #rape = check_rape(row[5], row[6])
-            crimes = [row[2], row[3], row[4], rape, row[7], row[8], row[9], row[10], row[11], row[12]]
+            crimes = [row[2], row[3], rape, row[6], row[7], row[8], row[9], row[10], row[11], row[12]]
             city_stats = { city : crimes }
 
             if state != "" and current_state == "" and prev_state == "": # initial
