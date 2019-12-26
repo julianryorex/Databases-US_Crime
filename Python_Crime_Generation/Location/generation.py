@@ -17,10 +17,7 @@ Extracts data from FBI crime csv files in Extracted Data.
 :params int year: due to how the folders are structured, pass a year
 '''
 def extract_locations(year, abs_path):
-
-    # os.chdir(f"{abs_path}/{year}")
-    # current_directory = os.getcwd()
-
+    
     print(f"{abs_path}/{year}/{year}.csv")
     with open(f"{abs_path}/{year}/{year}.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
