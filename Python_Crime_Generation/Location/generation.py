@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "/Users/myfatduck/OneDrive/Programs/Databases/Databases-US_Crime/Python_Crime_Generation")
+import util
 import csv
 import os
 import json
@@ -17,7 +20,7 @@ Extracts data from FBI crime csv files in Extracted Data.
 :params int year: due to how the folders are structured, pass a year
 '''
 def extract_locations(year, abs_path):
-    
+
     print(f"{abs_path}/{year}/{year}.csv")
     with open(f"{abs_path}/{year}/{year}.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -97,6 +100,8 @@ def main():
     year2016 = extract_locations(2016, abs_path)
     #year2017 = extract_locations(2017, abs_path)
     print_dict(year2016)
+    util.output_json(year2016, "location.json")
+
     output_SQL(year2016, "LOCATION")
 
 
