@@ -57,7 +57,7 @@ def output_SQL(table_name, data, path_to_file):
                     line = f"INSERT INTO {table_name} VALUES({index}, '{key}', {item.get(key)});\n"
                     output_file.write(line)
 
-def output_json(data, file_name):
+def output_json(data, file_name, open_type = "w"):
     file = find_all(file_name)
-    with open(file, "w") as json_file:
+    with open(file, open_type) as json_file:
         json.dump(data, json_file)
