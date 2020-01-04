@@ -15,10 +15,10 @@ def import_project_path():
 
 # prints number of lines processed
 def process(lines):
-    print(f"Processed {lines} lines." )
+    print(f"Processed {lines} lines from file." )
 
 def outputted(lines):
-    print(f"Outputted {lines} lines." )
+    print(f"Outputted {lines} lines to SQL." )
 
 # gets type of $item
 def t(item):
@@ -53,10 +53,16 @@ def print_dict(dictionary):
 # assumes a nested dictionary if data is type list
 def output_SQL(table_name, data, path_to_file):
     # temp solutions for dicts with more than 1 value
-    if len(data[0].keys()) > 1:
+
+    # array of arrays
+    if type(data) == list and type(data[0] == list):
+        array_in_array(table_name, data, path_to_file)
+
+    # if the format is a dictionary in a list:
+    elif len(data[0].keys()) > 1:
         output_multiple(table_name, data, path_to_file)
-        return
-    if type(data) == list:
+
+    elif type(data) == list:
         count = 0
         for index, item in enumerate(data, 1): # item is a dictionary
             for key in item:
@@ -67,6 +73,19 @@ def output_SQL(table_name, data, path_to_file):
                     count += 1
         outputted(count)
 
+
+# for nested arrays
+def array_in_array(table_name, data, path_to_file):
+    count = 0
+    for item in data:
+        file = f"{import_project_path()}/{path_to_file}"
+        with open(file, "a") as output_file:
+            v = value_to_string(item)
+            line = f"INSERT INTO {table_name} VALUES({v});\n"
+            output_file.write(line)
+            count += 1
+    outputted(count)
+
 # temp function for multiple dictionary values (such as person)
 def output_multiple(table_name, data, path_to_file):
     values = []
@@ -75,6 +94,7 @@ def output_multiple(table_name, data, path_to_file):
         for key, value in item.items():
             temp.append(value)
         values.append(temp)
+    print(values)
 
     count = 0 # number of lines outputted
     for item in values:
@@ -82,7 +102,8 @@ def output_multiple(table_name, data, path_to_file):
         with open(file, "a") as output_file:
             v = value_to_string(item)
             line = f"INSERT INTO {table_name} VALUES({v});\n"
-            output_file.write(line)
+            print(line)
+            #output_file.write(line)
             count += 1
     outputted(count)
 
@@ -95,3 +116,4 @@ def output_json(data, file_name, open_type = "w"):
     file = find_all(file_name)
     with open(file, open_type) as json_file:
         json.dump(data, json_file)
+    print("JSON has been dumped.")

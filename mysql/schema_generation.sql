@@ -1,8 +1,7 @@
 drop table if exists CRIME;
 drop table if exists INCARCERATION;
 drop table if exists WEAPON;
-drop table if exists OFFENDER;
-drop table if exists VICTIM;
+drop table if exists VICTIM_OFFENDER;
 drop table if exists PERSON;
 drop table if exists LOCATION;
 
@@ -24,23 +23,13 @@ OffenderFlag Boolean,
 VictimFlag Boolean,
 PRIMARY KEY(Ssn));
 
--- creating relation for the VICTIM entity as shown in EER diagram
-CREATE TABLE VICTIM(
+-- creating relation for the VICTIM_OFFENDER entity as shown in EER diagram
+CREATE TABLE VICTIM_OFFENDER(
 SsnVictim VARCHAR(9),
 SsnOffender	VARCHAR(9),
 PRIMARY KEY(SsnVictim),
 FOREIGN KEY(SsnVictim) REFERENCES PERSON(Ssn),
 FOREIGN KEY(SsnOffender) REFERENCES PERSON(Ssn) );
-
-
--- creating relation for the OFFENDER entity as shown in EER diagram.
-
-CREATE TABLE OFFENDER(
-SsnOffender VARCHAR(9),
-SsnVictim	VARCHAR(9),
-PRIMARY KEY(SsnOffender),
-FOREIGN KEY(SsnOffender) REFERENCES PERSON(Ssn),
-FOREIGN KEY(SsnVictim) REFERENCES PERSON(Ssn) );
 
 
 -- creating relation for the WEAPON entity as shown in EER diagram
