@@ -51,12 +51,15 @@ def print_dict(dictionary):
 
 # function that creates SQL output
 # assumes a nested dictionary if data is type list
-def output_SQL(table_name, data, path_to_file):
-    # temp solutions for dicts with more than 1 value
+def output_SQL(table_name, data, path_to_file, enum = False):
+
 
     # array of arrays
     if type(data) == list and type(data[0] == list):
-        array_in_array(table_name, data, path_to_file)
+        if enum:
+            array_in_array(table_name, data, path_to_file, enumerate)
+        else:
+            array_in_array(table_name, data, path_to_file)
 
     # if the format is a dictionary in a list:
     elif len(data[0].keys()) > 1:
@@ -75,20 +78,29 @@ def output_SQL(table_name, data, path_to_file):
 
 
 # for nested arrays (victim_offender)
-def array_in_array(table_name, data, path_to_file):
+def array_in_array(table_name, data, path_to_file, enum = False):
     count = 0
-    for item in data:
-        file = f"{import_project_path()}/{path_to_file}"
-        with open(file, "a") as output_file:
-            v = value_to_string(item)
-            line = f"INSERT INTO {table_name} VALUES({v});\n"
-            output_file.write(line)
-            count += 1
+    if enum:
+        for index, item in enumerate(data, 1):
+            file = f"{import_project_path()}/{path_to_file}"
+            with open(file, "a") as output_file:
+                v = value_to_string(item)
+                line = f"INSERT INTO {table_name} VALUES({index}, {v});\n"
+                output_file.write(line)
+                count += 1
+    else:
+        for item in data:
+            file = f"{import_project_path()}/{path_to_file}"
+            with open(file, "a") as output_file:
+                v = value_to_string(item)
+                line = f"INSERT INTO {table_name} VALUES({v});\n"
+                output_file.write(line)
+                count += 1
     outputted(count)
 
 # temp function for multiple dictionary values (such as person)
 # first get number of values in object
-# then output item to SQL using new value array 
+# then output item to SQL using new value array
 def output_multiple(table_name, data, path_to_file):
     values = []
     for index, item in enumerate(data, 1): # item is a dictionary
