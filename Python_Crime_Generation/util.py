@@ -74,7 +74,7 @@ def output_SQL(table_name, data, path_to_file):
         outputted(count)
 
 
-# for nested arrays
+# for nested arrays (victim_offender)
 def array_in_array(table_name, data, path_to_file):
     count = 0
     for item in data:
@@ -87,6 +87,8 @@ def array_in_array(table_name, data, path_to_file):
     outputted(count)
 
 # temp function for multiple dictionary values (such as person)
+# first get number of values in object
+# then output item to SQL using new value array 
 def output_multiple(table_name, data, path_to_file):
     values = []
     for index, item in enumerate(data, 1): # item is a dictionary
