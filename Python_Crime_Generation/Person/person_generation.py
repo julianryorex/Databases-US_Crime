@@ -4,7 +4,7 @@ import util
 import random
 
 # number of people to generate
-TOTAL_PERSON_NUM = 1000
+TOTAL_PERSON_NUM = 10000
 
 
 
@@ -86,6 +86,7 @@ def generation_reqs():
     first_names = import_first_names()
     last_names = import_last_names()
     people = generate_person(genders, races, first_names, last_names)
+
 
     util.output_SQL("PERSON", people, "/mysql/insertPeople.sql")
     output_json(first_names, last_names, people)

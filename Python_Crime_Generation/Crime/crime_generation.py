@@ -4,7 +4,7 @@ import util
 import json
 import random
 
-TOTAL_CRIME_NUM = 550
+TOTAL_CRIME_NUM = 6000
 JSON_DATA = ""
 WEAPON_JSON = ""
 INCAR_JSON = ""

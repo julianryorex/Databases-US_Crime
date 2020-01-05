@@ -60,6 +60,11 @@ def output_SQL(table_name, data, path_to_file, enum = False):
         else:
             array_in_array(table_name, data, path_to_file)
 
+    # if the format is a dictionary in a list:
+    elif type(data) == list and type(data[0]) == dict and len(data[0].keys()) > 1:
+        output_multiple(table_name, data, path_to_file)
+
+    # if just a list
     elif type(data) == list:
         count = 0
         for index, item in enumerate(data, 1):
@@ -69,13 +74,6 @@ def output_SQL(table_name, data, path_to_file, enum = False):
                 output_file.write(line)
                 count += 1
         outputted(count)
-
-    # if the format is a dictionary in a list:
-    elif len(data[0].keys()) > 1:
-        output_multiple(table_name, data, path_to_file)
-
-
-
 
     # item is a dictionary
     elif type(data) == list:
@@ -121,7 +119,6 @@ def output_multiple(table_name, data, path_to_file):
         for key, value in item.items():
             temp.append(value)
         values.append(temp)
-    #print(values)
 
     count = 0 # number of lines outputted
     for item in values:
@@ -130,7 +127,7 @@ def output_multiple(table_name, data, path_to_file):
             v = value_to_string(item)
             line = f"INSERT INTO {table_name} VALUES({v});\n"
             #print(line)
-            #output_file.write(line)
+            output_file.write(line)
             count += 1
     outputted(count)
 
