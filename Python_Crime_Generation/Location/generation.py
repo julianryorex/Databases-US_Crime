@@ -15,6 +15,19 @@ def import_path():
         return path
 
 
+
+def capitalize_states(state):
+    cap_state = []
+    if " " in state: # two words
+        state = state.split(" ")
+        for token in state:
+            cap_state.append(token.capitalize())
+
+        cap_state = " ".join(cap_state)
+        return cap_state
+    else:
+        return state.capitalize()
+
 '''
 Extracts data from FBI crime csv files in Extracted Data.
 :params int year: due to how the folders are structured, pass a year
@@ -37,8 +50,16 @@ def extract_locations(year, abs_path):
                 continue
 
             state = row[0]
+
+            # capitalize
+            state = capitalize_states(state)
+
             city_stats = {}
             city = row[1]
+
+            # SQL picks the comma up
+            if "," in city:
+                city = city.replace(",", "")
 
             crime_header = ("Population", "Violent", "Murder", "Rape", "Robbery", "Aggravated", "Property", "Burglary", "Larceny", "Motor")
             rape = row[5] if row[4] == "" and year == 2016 else row[4]
@@ -99,7 +120,7 @@ def main():
     data = []
     year2016 = extract_locations(2016, abs_path)
     #year2017 = extract_locations(2017, abs_path)
-    print_dict(year2016)
+    #print_dict(year2016)
     util.output_json(year2016, "location.json")
 
     output_SQL(year2016, "LOCATION")

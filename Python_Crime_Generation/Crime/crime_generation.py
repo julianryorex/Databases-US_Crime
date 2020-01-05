@@ -53,7 +53,7 @@ def remove_location_num(state):
     crime_index = ""
     city = ""
     while(True):
-        crime_info = JSON_DATA[state.upper()]
+        crime_info = JSON_DATA[state]
         length = len(crime_info) - 1
         randnum = random.randint(0, length)
         city_info = crime_info[randnum]
@@ -69,12 +69,12 @@ def remove_location_num(state):
             #print("CONTINUE")
             continue
 
-        number = list(JSON_DATA[state.upper()][randnum].values())[0][randnum2]
+        number = list(JSON_DATA[state][randnum].values())[0][randnum2]
         if "," in number:
             number = number.replace(',', '')
 
         number = int(number) - 1
-        list(JSON_DATA[state.upper()][randnum].values())[0][randnum2] = str(number)
+        list(JSON_DATA[state][randnum].values())[0][randnum2] = str(number)
         break
 
     return city, lookup_crime_type(crime_index)
@@ -117,7 +117,7 @@ def generate_weapon():
             return randnum + 1
 
     else:
-        return "NULL"
+        return 0
 
 
 def load_incar():
@@ -130,8 +130,8 @@ def load_incar():
 def incar_gen(weapon):
     global INCAR_JSON
     # no incarceration if no weapon
-    if weapon == "NULL":
-        return "NULL"
+    if weapon == 0:
+        return 0
 
     length = len(INCAR_JSON) - 1
     randnum = random.randint(0, length)

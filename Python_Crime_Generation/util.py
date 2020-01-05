@@ -53,7 +53,6 @@ def print_dict(dictionary):
 # assumes a nested dictionary if data is type list
 def output_SQL(table_name, data, path_to_file, enum = False):
 
-
     # array of arrays
     if type(data) == list and type(data[0]) == list:
         if enum:
@@ -122,7 +121,7 @@ def output_multiple(table_name, data, path_to_file):
         for key, value in item.items():
             temp.append(value)
         values.append(temp)
-    print(values)
+    #print(values)
 
     count = 0 # number of lines outputted
     for item in values:
@@ -130,7 +129,7 @@ def output_multiple(table_name, data, path_to_file):
         with open(file, "a") as output_file:
             v = value_to_string(item)
             line = f"INSERT INTO {table_name} VALUES({v});\n"
-            print(line)
+            #print(line)
             #output_file.write(line)
             count += 1
     outputted(count)

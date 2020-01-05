@@ -8,7 +8,7 @@ drop table if exists LOCATION;
 
 CREATE TABLE LOCATION(
 State			VARCHAR(20),
-City			VARCHAR(20),
+City			VARCHAR(40),
 PRIMARY KEY(State, City) );
 
 
@@ -35,7 +35,7 @@ FOREIGN KEY(SsnOffender) REFERENCES PERSON(Ssn) );
 -- creating relation for the WEAPON entity as shown in EER diagram
 CREATE TABLE WEAPON(
 Id INT,
-Type VARCHAR(20),
+Type VARCHAR(40),
 PRIMARY KEY(Id) );
 
 
@@ -50,7 +50,7 @@ CREATE TABLE CRIME
 (Id INT,
 Year YEAR,
 State VARCHAR(20),
-City VARCHAR(20),
+City VARCHAR(40),
 weapon_id INT,
 incarceration_id INT,
 committed_by VARCHAR(9),
