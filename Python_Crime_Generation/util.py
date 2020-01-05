@@ -68,7 +68,6 @@ def output_SQL(table_name, data, path_to_file, enum = False):
             with open(file, "a") as output_file:
                 line = f"INSERT INTO {table_name} VALUES({index}, '{item}');\n"
                 output_file.write(line)
-                print(line)
                 count += 1
         outputted(count)
 
