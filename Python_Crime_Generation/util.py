@@ -55,19 +55,34 @@ def output_SQL(table_name, data, path_to_file, enum = False):
 
 
     # array of arrays
-    if type(data) == list and type(data[0] == list):
+    if type(data) == list and type(data[0]) == list:
         if enum:
             array_in_array(table_name, data, path_to_file, enumerate)
         else:
             array_in_array(table_name, data, path_to_file)
 
+    elif type(data) == list:
+        count = 0
+        for index, item in enumerate(data, 1):
+            file = f"{import_project_path()}/{path_to_file}"
+            with open(file, "a") as output_file:
+                line = f"INSERT INTO {table_name} VALUES({index}, '{item}');\n"
+                output_file.write(line)
+                print(line)
+                count += 1
+        outputted(count)
+
     # if the format is a dictionary in a list:
     elif len(data[0].keys()) > 1:
         output_multiple(table_name, data, path_to_file)
 
+
+
+
+    # item is a dictionary
     elif type(data) == list:
         count = 0
-        for index, item in enumerate(data, 1): # item is a dictionary
+        for index, item in enumerate(data, 1):
             for key in item:
                 file = f"{import_project_path()}/{path_to_file}"
                 with open(file, "a") as output_file:

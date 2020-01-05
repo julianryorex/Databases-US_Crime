@@ -29,8 +29,16 @@ def generate_weapons():
 
 def main():
     weapon_data = generate_weapons()
-    print(weapon_data)
-    util.output_SQL("WEAPON", weapon_data, "/mysql/insertWeapons.sql")
+    # print(weapon_data)
     util.output_json(weapon_data, "weapons.json")
+
+    # change the format a bit for SQL:
+    weapons = []
+    for object in weapon_data:
+        for weapon in object:
+            weapons.append(weapon)
+
+    util.output_SQL("WEAPON", weapons, "/mysql/insertWeapons.sql")
+
 
 main()
